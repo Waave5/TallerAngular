@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Serie } from '../serie';
-import { series } from '../dataSerie';
+import { dataSeries } from '../dataSeries';
 import { SerieService } from '../serie.service';
 
-@Component({
-  selector: 'app-series-list',
-  standalone: false,
-  templateUrl: './series-list.html',
-  styleUrl: './series-list.css',
-})
-export class SeriesList implements OnInit {
 
+@Component({
+  selector: 'app-serie-list',
+  standalone: false,
+  templateUrl: './serie-list.component.html',
+  styleUrl: './serie-list.component.css',
+})
+export class SerieListComponent implements OnInit {
   series: Array<Serie> = [];
 
   constructor(private serieService: SerieService) {}
 
-  getSeriesList(): void {
-    this.serieService.getSeries().subscribe((series) => {
-      this.series = series;
-    });
+  getSeriesList() {
+    this.serieService.getSeries().subscribe((data) => {
+    console.log("DATA RECIBIDA:", data);   // ← MUY IMPORTANTE
+    this.series = data;
+  });
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getSeriesList();
   }
 
@@ -32,6 +33,4 @@ export class SeriesList implements OnInit {
   }
   return this.series.length ? (total / this.series.length) : 0;
 }
-
 }
-

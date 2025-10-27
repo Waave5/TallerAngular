@@ -1,5 +1,3 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, inject } from '@angular/core/testing';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpErrorInterceptorService } from './http-error-interceptor.service';

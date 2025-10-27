@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Serie } from './serie';
-
 import { environment } from '../../environments/environment.development';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SerieService {
-  private apiUrl = environment.baseUrl + 'series.json';
+
+  private apiUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
