@@ -1,0 +1,35 @@
+<nav class="navbar navbar-dark bg-info justify-content-center text-center">
+  <span class="navbar-brand mb-0 h1 text-white">TV Series</span>
+</nav>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Channel</th>
+            <th>Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (serie of series; track serie) {
+        <tr>
+            <td>{{ serie.id }}</td>
+            <td>{{ serie.name }}</td>
+            <td>{{ serie.channel }}</td>
+            <td>{{ serie.seasons }}</td>
+        </tr>
+        }
+
+        </tbody>
+      </table>
+
+      <p><strong>Seasons average:</strong> 
+        <span>{{ getAverageSeasons() }}</span>
+      </p>
+    </div>
+  </div>
+</div>
